@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
-    CreateProductInput, UpdateProductInput,
+    CreateProductInput,
+    UpdateProductInput,
 } from "../schema/product.schema";
 import {
     createProduct,
@@ -44,7 +45,7 @@ export async function updateProductHandler(
     const updatedProduct = await findAndUpdateProduct({ productId }, update, {
         new: true,
     });
-
+    res.sendStatus(200);
     return res.send(updatedProduct);
 }
 
