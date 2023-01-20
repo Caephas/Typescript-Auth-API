@@ -1,14 +1,6 @@
 import { Request, Response } from "express";
-import {
-    CreateProductInput,
-    UpdateProductInput,
-} from "../schema/product.schema";
-import {
-    createProduct,
-    deleteProduct,
-    findAndUpdateProduct,
-    findProduct,
-} from "../service/product.service";
+import {CreateProductInput,UpdateProductInput} from "../schema/product.schema";
+import {createProduct,deleteProduct,findAndUpdateProduct,findProduct} from "../service/product.service";
 
 export async function createProductHandler(
     req: Request<{}, {}, CreateProductInput["body"]>,
@@ -17,10 +9,14 @@ export async function createProductHandler(
     const userId = res.locals.user._id;
 
     const body = req.body;
-
-    const product = await createProduct({ ...body, user: userId });
-
-    return res.send(product);
+    try {
+        const product = await createProduct({ ...body, user: userId });
+        return res.send(product);
+    } catch (error) {
+        res.send(error)
+    }
+    
+    
 }
 
 export async function updateProductHandler(
@@ -32,21 +28,19 @@ export async function updateProductHandler(
     const productId = req.params.productId;
     const update = req.body;
 
-    const product = await findProduct({ productId });
+    const product = await findProduct({ productId })
 
     if (!product) {
-        return res.sendStatus(404);
+        return res.sendStatus(404)
+    } else if (product.user !== userId){
+        return res.sendStatus(403)
+    } else {
+        let updatedProduct = await findAndUpdateProduct({ productId }, update, {
+            new:true,
+        })
+        return res.send(updatedProduct)
     }
 
-    if (String(product.user) !== userId) {
-        return res.sendStatus(403);
-    }
-
-    const updatedProduct = await findAndUpdateProduct({ productId }, update, {
-        new: true,
-    });
-    res.sendStatus(200);
-    return res.send(updatedProduct);
 }
 
 export async function getProductHandler(
@@ -73,14 +67,13 @@ export async function deleteProductHandler(
     const product = await findProduct({ productId });
 
     if (!product) {
-        return res.sendStatus(404);
+        return res.sendStatus(403)
+    } else if (product.user !== userId) {
+        return res.sendStatus(403)
+    } else {
+        await deleteProduct({ productId })
+        return res.sendStatus(201)
     }
 
-    if (String(product.user) !== userId) {
-        return res.sendStatus(403);
-    }
-
-    await deleteProduct({ productId });
-
-    return res.sendStatus(200);
+   
 }
