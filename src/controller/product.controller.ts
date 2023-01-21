@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import {CreateProductInput,UpdateProductInput} from "../schema/product.schema";
-import {createProduct,deleteProduct,findAndUpdateProduct,findProduct} from "../service/product.service";
+import { CreateProductInput, UpdateProductInput } from "../schema/product.schema";
+import { createProduct, deleteProduct, findAndUpdateProduct, findProduct } from "../service/product.service";
 
 export async function createProductHandler(
     req: Request<{}, {}, CreateProductInput["body"]>,
@@ -15,8 +15,8 @@ export async function createProductHandler(
     } catch (error) {
         res.send(error)
     }
-    
-    
+
+
 }
 
 export async function updateProductHandler(
@@ -32,11 +32,11 @@ export async function updateProductHandler(
 
     if (!product) {
         return res.sendStatus(404)
-    } else if (product.user !== userId){
+    } else if (product.user !== userId) {
         return res.sendStatus(403)
     } else {
         let updatedProduct = await findAndUpdateProduct({ productId }, update, {
-            new:true,
+            new: true,
         })
         return res.send(updatedProduct)
     }
@@ -74,6 +74,4 @@ export async function deleteProductHandler(
         await deleteProduct({ productId })
         return res.sendStatus(201)
     }
-
-   
 }
