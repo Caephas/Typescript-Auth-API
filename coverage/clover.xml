@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674492719205" clover="3.2.0">
-  <project timestamp="1674492719205" name="All files">
-    <metrics statements="95" coveredstatements="52" conditionals="17" coveredconditionals="2" methods="18" coveredmethods="6" elements="130" coveredelements="60" complexity="0" loc="95" ncloc="95" packages="4" files="7" classes="7"/>
+<coverage generated="1674493269358" clover="3.2.0">
+  <project timestamp="1674493269358" name="All files">
+    <metrics statements="70" coveredstatements="36" conditionals="14" coveredconditionals="1" methods="11" coveredmethods="2" elements="95" coveredelements="39" complexity="0" loc="70" ncloc="70" packages="3" files="4" classes="4"/>
     <package name="controller">
-      <metrics statements="20" coveredstatements="7" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="20" coveredstatements="13" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="session.controller.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\controller\session.controller.ts">
-        <metrics statements="20" coveredstatements="7" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="20" coveredstatements="13" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
@@ -28,31 +28,8 @@
         <line num="47" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="models">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="product.model.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\models\product.model.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-      </file>
-    </package>
     <package name="service">
-      <metrics statements="50" coveredstatements="21" conditionals="12" coveredconditionals="1" methods="11" coveredmethods="2"/>
-      <file name="product.service.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\service\product.service.ts">
-        <metrics statements="9" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="2"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-      </file>
+      <metrics statements="41" coveredstatements="14" conditionals="11" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="session.service.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\service\session.service.ts">
         <metrics statements="24" coveredstatements="9" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="2" count="1" type="stmt"/>
@@ -102,21 +79,7 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="20" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
-      <file name="jwt.utils.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\utils\jwt.utils.ts">
-        <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-      </file>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="server.ts" path="C:\Users\Caephas\Documents\side_projects\Typescript-API\src\utils\server.ts">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>

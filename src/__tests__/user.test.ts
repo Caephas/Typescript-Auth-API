@@ -117,7 +117,7 @@ describe('user registration', () => {
                     json
 
                 }
-
+                //@ts-ignore
                 await createSessionHandler(await req, res)
 
                 expect(send).toHaveBeenCalledWith({

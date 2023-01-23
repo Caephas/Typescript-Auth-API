@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>13/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>13/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -121,29 +121,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -169,31 +169,31 @@ import { createSession, findSessions, updateSession } from "../service/session.s
 import { signJwt } from "../utils/jwt.utils";
 import config from "config";
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >createSessionHandler(</span>req: Request, res: Response) {
+export async function createSessionHandler(req: Request, res: Response) {
     //validate the user's password
-    const user = <span class="cstat-no" title="statement not covered" >await validatePassword(req.body)</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!user) {</span>
+    const user = await validatePassword(req.body)
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!user) {
 <span class="cstat-no" title="statement not covered" >        return res.status(401).send("Invalid email or password")</span>
     }
     //create the user session
-    const session = <span class="cstat-no" title="statement not covered" >await createSession(user._id, req.get("user-agent") || "")</span>
+    const session = await createSession(user._id, req.get("user-agent") || <span class="branch-1 cbranch-no" title="branch not covered" >"")</span>
     
     //create  an access token
-    const accessToken = <span class="cstat-no" title="statement not covered" >signJwt({</span>
+    const accessToken = signJwt({
         ...user, session: session._id
     },
         { expiresIn: config.get('accessTokenTtl') } //20 minutes
     )
 &nbsp;
     //Refresh Token
-    const refreshToken = <span class="cstat-no" title="statement not covered" >signJwt(</span>
+    const refreshToken = signJwt(
         { ...user, session: session._id },
         {expiresIn: config.get('refreshTokenTtl')}
     )
 &nbsp;
     //return access and refresh tokens
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return res.send({accessToken, refreshToken})</span>
+    return res.send({accessToken, refreshToken})
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >getUserSessionsHandler(</span>req: Request, res: Response) {
@@ -220,7 +220,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-23T16:51:59.166Z
+                at 2023-01-23T17:01:09.322Z
             </div>
         <script src="../prettify.js"></script>
         <script>
